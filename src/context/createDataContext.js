@@ -9,6 +9,8 @@ const createDataContext = (reducer, actions, initialState) => {
     //actions === { addBlogPost:(dispatch) => { return () => {} } }
     const boundActions = {};
     for (let key in actions) {
+      //key === 'addBlogPost'
+      //boundActions.addBlogPost = (dispatch) => { return () => {} }
       boundActions[key] = actions[key](dispatch);
     }
 
