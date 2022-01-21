@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import IndexScreen from './src/screens/IndexScreen';
-import { BlogProvider } from './src/context/BlogContext';
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import IndexScreen from "./src/screens/IndexScreen";
+import { Provider as BlogProvider } from "./src/context/BlogContext";
 
 const App = () => {
   const { Navigator, Screen } = createNativeStackNavigator();
@@ -11,8 +11,8 @@ const App = () => {
     <NavigationContainer>
       <Navigator
         screenOptions={{
-          initialRouteName: 'Index',
-          headerTitleAlign: 'center',
+          initialRouteName: "Index",
+          headerTitleAlign: "center",
         }}
       >
         <Screen name="Index" component={IndexScreen} />
