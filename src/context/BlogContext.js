@@ -20,3 +20,20 @@ export const { Context, Provider } = createDataContext(
   { addBlogPost },
   []
 );
+
+// const addPotato = (send) => {
+//   send("POTATO SENT");
+// };
+
+// const potatoContext = (actions) => {
+//   const send = (input) => {
+//     console.log("FROM CONTEXT:", input);
+//   };
+//   const boundActions = {};
+//   for (let key in actions) {
+//     boundActions[key] = actions[key](send);
+   
+//   }
+// };
+
+// potatoContext({ addPotato });
