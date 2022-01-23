@@ -10,7 +10,7 @@ import {
 import { Context as BlogContext } from "../context/BlogContext";
 import { Feather } from "@expo/vector-icons";
 
-const IndexScreen = () => {
+const IndexScreen = ({ navigation: { navigate } }) => {
   //A component calling useContext will always re-render when the context value changes.
   //If re-rendering the component is expensive, you can optimize it by using memoization.
   const { state, addBlogPost, deleteBlogPost } = useContext(BlogContext);
@@ -24,14 +24,16 @@ const IndexScreen = () => {
         keyExtractor={(blogPost) => blogPost.title}
         renderItem={({ item }) => {
           return (
-            <View style={styles.row}>
-              <Text style={styles.title}>
-                {item.title} - {item.id}
-              </Text>
-              <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
-                <Feather style={styles.icon} name="trash" color="black" />
-              </TouchableOpacity>
-            </View>
+            <TouchableOpacity onPress={() => navigate("Show", { id: item.id })}>
+              <View style={styles.row}>
+                <Text style={styles.title}>
+                  {item.title} - {item.id}
+                </Text>
+                <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
+                  <Feather style={styles.icon} name="trash" color="black" />
+                </TouchableOpacity>
+              </View>
+            </TouchableOpacity>
           );
         }}
       />
