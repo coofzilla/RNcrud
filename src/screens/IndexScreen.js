@@ -5,7 +5,7 @@ import {
   StyleSheet,
   FlatList,
   Button,
-  Pressable,
+  TouchableOpacity,
 } from "react-native";
 import { Context as BlogContext } from "../context/BlogContext";
 import { Feather } from "@expo/vector-icons";
@@ -13,7 +13,7 @@ import { Feather } from "@expo/vector-icons";
 const IndexScreen = () => {
   //A component calling useContext will always re-render when the context value changes.
   //If re-rendering the component is expensive, you can optimize it by using memoization.
-  const { state, addBlogPost } = useContext(BlogContext);
+  const { state, addBlogPost, deleteBlogPost } = useContext(BlogContext);
 
   return (
     <View>
@@ -28,13 +28,9 @@ const IndexScreen = () => {
               <Text style={styles.title}>
                 {item.title} - {item.id}
               </Text>
-              <Pressable
-                onPress={() => {
-                  console.log(item.id);
-                }}
-              >
+              <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
                 <Feather style={styles.icon} name="trash" color="black" />
-              </Pressable>
+              </TouchableOpacity>
             </View>
           );
         }}
