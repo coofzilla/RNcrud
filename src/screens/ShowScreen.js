@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { Context } from "../context/BlogContext";
 
-const ShowScreen = () => {
+const ShowScreen = ({ route: { params } }) => {
+  //destructured from value={{ state, ...boundActions }}>
+  const { state } = useContext(Context);
+  const blogPost = state.find((post) => post.id === params.id);
+
   return (
     <View>
-      <Text>Show Screen</Text>
+      <Text>{blogPost.title}</Text>
     </View>
   );
 };
