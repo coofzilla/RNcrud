@@ -27,8 +27,6 @@ const IndexScreen = ({ navigation }) => {
 
   return (
     <View>
-      {/* same as this onPress={() => addBlogPost()}; makes ref to function to be called */}
-      <Button title="Add Post" onPress={addBlogPost} />
       <FlatList
         data={state}
         keyExtractor={(blogPost) => blogPost.title}
