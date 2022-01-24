@@ -11,7 +11,9 @@ const ShowScreen = ({ route: { params }, navigation }) => {
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <TouchableOpacity onPress={() => navigation.navigate("Edit")}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Edit", { id: params.id })}
+        >
           <FontAwesome name="pencil-square-o" size={24} color="black" />
         </TouchableOpacity>
       ),
