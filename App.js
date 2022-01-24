@@ -5,6 +5,8 @@ import { Provider as BlogProvider } from "./src/context/BlogContext";
 import IndexScreen from "./src/screens/IndexScreen";
 import ShowScreen from "./src/screens/ShowScreen";
 import CreateScreen from "./src/screens/CreateScreen";
+import { TouchableOpacity } from "react-native";
+import { Feather } from "@expo/vector-icons";
 
 const App = () => {
   const { Navigator, Screen } = createNativeStackNavigator();
@@ -17,7 +19,17 @@ const App = () => {
           headerTitleAlign: "center",
         }}
       >
-        <Screen name="Index" component={IndexScreen} />
+        <Screen
+          name="Index"
+          component={IndexScreen}
+          options={({ navigation: { navigate } }) => ({
+            headerRight: () => (
+              <TouchableOpacity onPress={() => navigate("Create")}>
+                <Feather name="plus" size={30} />
+              </TouchableOpacity>
+            ),
+          })}
+        />
         <Screen name="Show" component={ShowScreen} />
         <Screen name="Create" component={CreateScreen} />
       </Navigator>
