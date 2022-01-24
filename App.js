@@ -19,17 +19,7 @@ const App = () => {
           headerTitleAlign: "center",
         }}
       >
-        <Screen
-          name="Index"
-          component={IndexScreen}
-          options={({ navigation: { navigate } }) => ({
-            headerRight: () => (
-              <TouchableOpacity onPress={() => navigate("Create")}>
-                <Feather name="plus" size={30} />
-              </TouchableOpacity>
-            ),
-          })}
-        />
+        <Screen name="Index" component={IndexScreen} />
         <Screen name="Show" component={ShowScreen} />
         <Screen name="Create" component={CreateScreen} />
       </Navigator>
