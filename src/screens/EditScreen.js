@@ -7,7 +7,14 @@ const EditScreen = ({ route: { params } }) => {
   const { state } = useContext(Context);
   const blogPost = state.find((post) => post.id === params.id);
 
-  return <BlogPostForm />;
+  return (
+    <BlogPostForm
+      initialValues={{ title: blogPost.title, content: blogPost.title }}
+      onSubmit={(title, content) => {
+        console.log(title, content);
+      }}
+    />
+  );
 };
 
 const styles = StyleSheet.create({});
