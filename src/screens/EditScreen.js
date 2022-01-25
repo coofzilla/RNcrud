@@ -3,15 +3,19 @@ import { StyleSheet } from "react-native";
 import { Context } from "../context/BlogContext";
 import BlogPostForm from "../components/BlogPostForm";
 
-const EditScreen = ({ route: { params } }) => {
-  const { state } = useContext(Context);
-  const blogPost = state.find((post) => post.id === params.id);
+const EditScreen = ({
+  route: {
+    params: { id },
+  },
+}) => {
+  const { state, editBlogPost } = useContext(Context);
+  const blogPost = state.find((post) => post.id === id);
 
   return (
     <BlogPostForm
       initialValues={{ title: blogPost.title, content: blogPost.title }}
       onSubmit={(title, content) => {
-        console.log(title, content);
+        editBlogPost(id, title, content);
       }}
     />
   );
