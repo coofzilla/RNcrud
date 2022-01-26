@@ -9,7 +9,7 @@ const CreateScreen = ({ navigation }) => {
     <BlogPostForm
       onSubmit={(title, content) => {
         //third arg callback() from BlogContext.js
-        addBlogPost(title, content, () => navigation.navigate("Index"));
+        addBlogPost(title, content, () => navigation.navigate("Blogs"));
       }}
     />
   );

@@ -14,11 +14,11 @@ const App = () => {
     <NavigationContainer>
       <Navigator
         screenOptions={{
-          initialRouteName: "Index",
+          initialRouteName: "Blogs",
           headerTitleAlign: "center",
         }}
       >
-        <Screen name="Index" component={IndexScreen} />
+        <Screen name="Blogs" component={IndexScreen} />
         <Screen name="Show" component={ShowScreen} />
         <Screen name="Create" component={CreateScreen} />
         <Screen name="Edit" component={EditScreen} />
