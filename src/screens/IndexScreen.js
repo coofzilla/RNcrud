@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import {
   View,
   Text,
@@ -13,7 +13,11 @@ import { Feather } from "@expo/vector-icons";
 const IndexScreen = ({ navigation }) => {
   //A component calling useContext will always re-render when the context value changes.
   //If re-rendering the component is expensive, you can optimize it by using memoization.
-  const { state, addBlogPost, deleteBlogPost } = useContext(BlogContext);
+  const { state, getBlogPosts, deleteBlogPost } = useContext(BlogContext);
+
+  useEffect(() => {
+    getBlogPosts();
+  }, []);
 
   React.useLayoutEffect(() => {
     navigation.setOptions({
