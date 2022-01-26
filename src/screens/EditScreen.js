@@ -7,6 +7,7 @@ const EditScreen = ({
   route: {
     params: { id },
   },
+  navigation,
 }) => {
   const { state, editBlogPost } = useContext(Context);
   const blogPost = state.find((post) => post.id === id);
@@ -15,7 +16,7 @@ const EditScreen = ({
     <BlogPostForm
       initialValues={{ title: blogPost.title, content: blogPost.title }}
       onSubmit={(title, content) => {
-        editBlogPost(id, title, content);
+        editBlogPost(id, title, content, () => navigation.pop());
       }}
     />
   );

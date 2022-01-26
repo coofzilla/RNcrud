@@ -8,6 +8,7 @@ const CreateScreen = ({ navigation }) => {
   return (
     <BlogPostForm
       onSubmit={(title, content) => {
+        //third arg callback() from BlogContext.js
         addBlogPost(title, content, () => navigation.navigate("Index"));
       }}
     />
